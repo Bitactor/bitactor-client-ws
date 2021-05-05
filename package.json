@@ -1,8 +1,7 @@
 {
-  "name": "bitactor-client-ws-ts",
-  "version": "1.0.0",
+  "name": "bitactor-client-ws",
+  "version": "1.1.0",
   "description": "bitactor-cloud-spring WebSocket protocol toolkit",
-  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +13,23 @@
   "license": "Apache2.0",
   "devDependencies": {
     "typescript": "^4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bitactor/bitactor-client-ws.git"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {}
   }
 }
