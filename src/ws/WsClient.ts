@@ -237,6 +237,7 @@ export class WsClient {
      */
     close() {
         this.sendPack(new MessageClose());
-        this.connector.close()
+        this.connector.close();
+        this.reconnect = false;
     }
 }

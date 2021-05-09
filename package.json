@@ -1,6 +1,6 @@
 {
   "name": "bitactor-client-ws",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "bitactor-cloud-spring WebSocket protocol toolkit",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
