@@ -20,6 +20,7 @@ export class WsClient {
     address: string;
     timer!: number;
     msgId: number = 0;
+    mark: boolean = false;
     reconnect: boolean = false;
     reconnectTimes: number = 0;
     reconnectTimesMax: number = 5;
@@ -47,6 +48,7 @@ export class WsClient {
     public connect(): boolean {
         this.connector = new WebSocket(this.address);
         this.connector.binaryType = "arraybuffer";
+        this.mark = true;
         this.connector.onopen = (evt: Event) => {
             this.onConnect();
         };
@@ -113,6 +115,9 @@ export class WsClient {
      * @param evt
      */
     private closeHandler(evt: CloseEvent, justStop: boolean): void {
+        if (!this.mark) {
+            return;
+        }
         this.stopHeartBeat(justStop);
         // 重连
         if (this.reconnect && !justStop && this.reconnectTimes < this.reconnectTimesMax) {
@@ -130,6 +135,7 @@ export class WsClient {
                 this.onClose.call(this);
             }
         }
+        this.mark = false;
     }
 
     /**
