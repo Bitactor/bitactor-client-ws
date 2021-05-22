@@ -228,6 +228,7 @@ export class WsClient {
      */
     sendMsg(protoType: number, cmdId: number, buffer: ArrayBuffer): void {
         const message = MessageConnectorData.builderBase(buffer, protoType, this.getMsgId(), cmdId);
+        // @ts-ignore
         this.sendPack(message);
     }
 
